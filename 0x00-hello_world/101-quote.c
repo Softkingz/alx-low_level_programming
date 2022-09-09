@@ -1,4 +1,6 @@
 
+#include <stdio.h>
+
 /**
  * main - prints to string
  * Description: Prints "and that piece of art is useful.." without puts
