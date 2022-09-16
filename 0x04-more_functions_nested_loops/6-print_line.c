@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * print_line - printing lines
- * @n: number of times
+ * print_line - prints a line
+ * @n: variable
  *
- * Return: void
+ * Return: 0
  */
-
 
 void print_line(int n)
 {
-	int i;
+	int a = 0;
 
-	for (i = 0; i < n; i++)
+	while (a < n && n > 0)
 	{
-		putchar('');
+		_putchar('_');
+		a++;
 	}
 	_putchar('\n');
 }
