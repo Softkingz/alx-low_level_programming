@@ -1,47 +1,46 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * argstostr - function concatenates all the arguments of your program.
- * @ac: pointer
- * @av: altura
+ * argstostr - concatenates all the arguments of your program
+ * @ac: argument count in main
+ * @av: arguments passed to main
  *
- * REturn: result
+ * Return: Pointer
  */
-
 char *argstostr(int ac, char **av)
 {
-	int i = 0, j = 0, cont = 0;
-	char *result, *new;
+	char *s;
+	int l, lt, i, j, k;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-	while (i < ac)
+		return (0);
+	l = 0, k = 0;
+	for (i = 0; i < ac; i++)
 	{
-		new = av[i];
-		while (*new)
-		{
-			cont++;
-			new++;
-		}
-		cont++;
-		i++;
+		lt = 0;
+		while (av[i][lt])
+			lt++;
+		l += lt + 1;
 	}
-	result = malloc(cont + 1);
-	i = 0;
-	while (i < ac)
+	s = malloc((l + 1) * sizeof(char));
+
+	if (s == 0)
+		return (0);
+
+	for (j = 0; j < ac; j++)
 	{
-		new = av[i];
-		while (*new)
+		lt = 0;
+		while (av[j][lt])
 		{
-			result[j] = *new;
-			new++;
-			j++;
+			*(s + k) = av[j][lt];
+			k++;
+			lt++;
 		}
-		result[j] = '\n';
-		j++;
-		i++;
+		*(s + k) = '\n';
+		k++;
 	}
-	result[cont + 1] = '\0';
-	return (result);
+	*(s + k) = '\0';
+
+	return (s);
 }
