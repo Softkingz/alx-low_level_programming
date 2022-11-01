@@ -1,2 +1,1 @@
-C - Low level programming
-Repository for studying C language and all of its components.
+0x15-file_io
